@@ -1,8 +1,9 @@
-# Convert an integer to binary
+# Convert an whole number to binary
 
-Very small C program that converts integer values to their binary equivalent.
+Very small C program that converts whole numbers to their binary equivalent.
 
 Math done in this program was inspired by [this](https://github.com/mbadger88/BinaryToDecimalConverter) python program by [@mbadger88](https://github.com/mbadger88).
 
 #### To Do:
  - [ ] Allow an argument to the program as input
+ - [ ] Compute decimal values

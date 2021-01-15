@@ -4,7 +4,7 @@
 int main()
 {
     int i, inp;
-    printf("Enter Value(int): ");
+    printf("Enter Value(whole no.): ");
     scanf(" %d", &inp);
 
     int tmp = inp;
@@ -22,4 +22,5 @@ int main()
 
     while (i >= 0) // print the char array backwards for the right binary value
         putchar(string[i--]);
+    putchar('\n');
 }
