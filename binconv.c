@@ -3,26 +3,23 @@
 
 int main()
 {
-    int i;
-    int inp = 0;
+    int i, inp;
     printf("Enter Value(int): ");
     scanf(" %d", &inp);
 
     int tmp = inp;
     for (i = 0; tmp >= 1 ;i++)
-        tmp = tmp / 2; //find out the largest power of 2 that is needed
+        tmp /= 2; // find out the largest power of 2 that is needed
 
     char string[i];
 
-    int val = 0;
-    int slot = 0;
+    i = 0;
     while (inp >= 1)
     {
-        val = inp % 2;
-        string[slot++] = val + '0';
-        inp = inp / 2;
+        string[i++] = (inp % 2) + '0';
+        inp /= 2;
     }
 
-    for (i = slot; i >= 0; i--) //the actual binary value is stored backwards in the char array
-        putchar(string[i]);     //so print it backwards to make the output right
+    while (i >= 0) // print the char array backwards for the right binary value
+        putchar(string[i--]);
 }
