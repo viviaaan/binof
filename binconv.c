@@ -1,13 +1,26 @@
 /* Convert a number to its binary equivalent */
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+int main(int argc, char *argv[1])
 {
-    int i, inp;
-    printf("Enter Value(whole no.): ");
-    scanf(" %d", &inp);
+    int i, inp, tmp;
 
-    int tmp = inp;
+    if (argc == 2) //use command-line arg if present
+        tmp = inp = atoi(argv[1]);
+    else
+    {
+        printf("Enter whole number : ");
+        scanf(" %d", &inp);
+        tmp = inp;
+    }
+
+    if (inp < 0)
+    {
+        printf("error: argument must be a positive integer\n");
+        exit(1);
+    }
+
     for (i = 0; tmp >= 1 ;i++)
         tmp /= 2; // find out the largest power of 2 that is needed
 
