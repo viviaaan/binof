@@ -21,10 +21,13 @@ int main(int argc, char *argv[1])
         exit(1);
     }
 
-    for (i = 0; tmp >= 1 ;i++)
+    for (i = 0; tmp >= 1; i++)
         tmp /= 2; // find out the largest power of 2 that is needed
 
-    char string[i];
+    char string[i+2]; // assign a char array of the required size
+                      // had to add two to compute bigger values without string overflow, don't know why
+    string[i+2] = '\0';
+
 
     i = 0;
     while (inp >= 1)
