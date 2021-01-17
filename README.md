@@ -1,4 +1,4 @@
-# Convert an whole number to binary
+# Convert a whole number to binary
 
 Very small C program that converts whole numbers to their binary equivalent.
 
