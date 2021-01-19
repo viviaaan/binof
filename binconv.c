@@ -4,10 +4,16 @@
 
 int main(int argc, char *argv[1])
 {
-    int i, inp, tmp;
+    int inp, tmp;
+    int i = 0;
 
-    if (argc == 2) //use command-line arg if present
+    if (argc == 2) // use command-line arg if present
         tmp = inp = atoi(argv[1]);
+    else if (argc > 2)
+    {
+        printf("error: expected only one argument");
+        exit(1);
+    }
     else
     {
         printf("Enter whole number : ");
@@ -21,12 +27,11 @@ int main(int argc, char *argv[1])
         exit(1);
     }
 
-    for (i = 0; tmp >= 1; i++)
-        tmp /= 2; // find out the largest power of 2 that is needed
+    while ((tmp /= 2) > 1)
+        i++; // find out the largest power of 2 that is needed
 
-    char string[i+2]; // assign a char array of the required size
-                      // had to add two to compute bigger values without string overflow, don't know why
-    string[i+2] = '\0';
+    char string[i]; // assign a char array of the required size
+    string[i-1] = '\0';
 
 
     i = 0;
@@ -37,6 +42,6 @@ int main(int argc, char *argv[1])
     }
 
     while (i >= 0) // print the char array backwards for the right binary value
-        putchar(string[i--]);
+        putchar(string[--i]);
     putchar('\n');
 }
