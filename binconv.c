@@ -9,20 +9,17 @@ int main(int argc, char *argv[1])
 
     if (argc == 2) // use command-line arg if present
         tmp = inp = atoi(argv[1]);
-    else if (argc > 2)
-    {
+    else if (argc > 2) {
         printf("error: expected only one argument");
         exit(1);
     }
-    else
-    {
+    else {
         printf("Enter whole number : ");
         scanf(" %d", &inp);
         tmp = inp;
     }
 
-    if (inp < 0)
-    {
+    if (inp < 0) {
         printf("error: argument must be a positive integer\n");
         exit(1);
     }
@@ -35,8 +32,7 @@ int main(int argc, char *argv[1])
 
 
     i = 0;
-    while (inp >= 1)
-    {
+    while (inp >= 1) {
         string[i++] = (inp % 2) + '0';
         inp /= 2;
     }
