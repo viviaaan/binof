@@ -10,7 +10,7 @@ int main(int argc, char *argv[1])
     if (argc == 2) // use command-line arg if present
         tmp = inp = atoi(argv[1]);
     else if (argc > 2) {
-        printf("error: expected only one argument");
+        printf("error: expected only one argument\n");
         exit(1);
     }
     else {
