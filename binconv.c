@@ -7,16 +7,16 @@ int main(int argc, char *argv[1])
     int inp, tmp;
     int i = 0;
 
-    if (argc == 2) // use command-line arg if present
-        tmp = inp = atoi(argv[1]);
-    else if (argc > 2) {
-        printf("error: expected only one argument\n");
-        exit(1);
-    }
-    else {
+    if (argc == 1) {
         printf("Enter whole number : ");
         scanf(" %d", &inp);
         tmp = inp;
+    }
+    else if (argc == 2) // use command-line arg if present
+        tmp = inp = atoi(argv[1]);
+    else {
+        printf("error: expected only one argument\n");
+        exit(1);
     }
 
     if (inp < 0) {
