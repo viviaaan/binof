@@ -1,4 +1,4 @@
-/* Convert a number to its binary equivalent */
+/* Convert a number to binary */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,7 +8,7 @@ int main(int argc, char *argv[1])
     int i = 0;
 
     if (argc == 1) {
-        printf("Enter whole number : ");
+        printf("Enter a whole number : ");
         scanf(" %d", &inp);
         tmp = inp;
     }
@@ -24,10 +24,10 @@ int main(int argc, char *argv[1])
         exit(1);
     }
 
-    while ((tmp /= 2) > 1)
-        i++; // find out the largest power of 2 that is needed
+    while (tmp /= 2)
+        i++; // `i` equals the largest power of 2 that is less than or equal to `tmp`
 
-    char string[i]; // assign a char array of the required size
+    char string[i];
     string[i-1] = '\0';
 
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[1])
         inp /= 2;
     }
 
-    while (i >= 0) // print the char array backwards for the right binary value
+    while (i) // print the char array backwards
         putchar(string[--i]);
     putchar('\n');
 }
