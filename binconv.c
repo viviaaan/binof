@@ -27,17 +27,16 @@ int main(int argc, char *argv[1])
     while (tmp /= 2)
         i++; // `i` equals the largest power of 2 that is less than or equal to `tmp`
 
-    char string[i];
-    string[i-1] = '\0';
-
+    char result[i];
+    result[i-1] = '\0';
 
     i = 0;
-    while (inp >= 1) {
-        string[i++] = (inp % 2) + '0';
+    while (inp) {
+        result[i++] = (inp % 2) + '0';
         inp /= 2;
     }
 
     while (i) // print the char array backwards
-        putchar(string[--i]);
+        putchar(result[--i]);
     putchar('\n');
 }
