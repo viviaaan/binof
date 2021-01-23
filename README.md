@@ -6,4 +6,5 @@ I learnt how to compute the binary value from [this binary converter](https://gi
 
 #### To Do:
  - [X] Allow an argument as input
+ - [X] Allow multiple args as input
  - [ ] Compute decimal values
