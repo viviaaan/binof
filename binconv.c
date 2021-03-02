@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     if (argc == 1) {
         printf("Enter a whole number : ");
         scanf(" %d", &inp);
-        if (convert(inp))
+        if (convert(inp)) // executes when input is less than 1
             printf("error: %d is not a whole number\n", inp);
     }
     else
