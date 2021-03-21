@@ -30,6 +30,8 @@ int convert(int inp)
     for (int tmp = inp; tmp /= 2; i++)
         ;
     char string[i];
+    if (inp % 2)
+        putchar('0'); // add leading 0 if inp is odd
 
     i = 0;
     do
