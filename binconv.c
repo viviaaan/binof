@@ -1,47 +1,50 @@
 /* Convert a number to binary */
 #include <stdio.h>
 #include <stdlib.h>
-int convert(int inp);
+void toBits(int num);
 
 int main(int argc, char *argv[])
 {
-    int inp;
+    int input;
+
     if (argc == 1) {
         printf("Enter a whole number : ");
-        scanf(" %d", &inp);
-        if (convert(inp)) // executes when input is less than 1
-            printf("error: %d is not a whole number\n", inp);
+        scanf(" %d", &input);
+
+        if (input < 0)
+            printf("error: %d is not a whole number\n", input);
+        else
+          toBits(input);
     }
     else
         for (int j = 1; j < argc; j++) {
-            inp = atoi(argv[j]);
-            if (convert(inp))
+            input = atoi(argv[j]);
+
+            if (input < 0)
                 printf("error: %s is not a whole number\n", argv[j]);
+            else
+              toBits(input);
         }
 }
 
-int convert(int inp)
+void toBits(int num)
 {
-    if (inp < 0)
-        return (-1);
-    else {
-    int i = 0;
+    int highest = 0;
 
-    for (int tmp = inp; tmp /= 2; i++)
+    for (int tmp = num; tmp /= 2; highest++) // find the highest power of 2 that's less than num
         ;
-    char string[i];
-    if (inp % 2)
-        putchar('0'); // add leading 0 if inp is odd
+    char string[highest];
 
-    i = 0;
+    if (num % 2)
+        putchar('0'); // add leading 0 if num is odd
+
+    int i = 0;
     do
-        string[i++] = (inp % 2) + '0';
-    while (inp /= 2);
+        string[i++] = (num % 2) + '0';
+    while (num /= 2);
 
-    while (i) // print the char array backwards
-        putchar(string[--i]);
+    while (i)
+        putchar(string[--i]); // print the char array backwards
+
     putchar('\n');
-
-    return 0;
-    }
 }
