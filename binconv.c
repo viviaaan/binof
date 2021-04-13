@@ -35,9 +35,6 @@ void toBits(int num)
         ;
     char string[highest];
 
-    if (num % 2)
-        putchar('0'); // add leading 0 if num is odd
-
     int i = 0;
     do
         string[i++] = (num % 2) + '0';
