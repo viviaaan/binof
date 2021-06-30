@@ -1,47 +1,52 @@
-/* Convert a number to binary */
+/* find the two's complement of integers */
 #include <stdio.h>
 #include <stdlib.h>
-void toBits(int num);
+char* toBits(int num);
 
 int main(int argc, char *argv[])
 {
     int input;
 
     if (argc == 1) {
-        printf("Enter a whole number : ");
+        printf("Enter an integer: ");
         scanf(" %d", &input);
-
-        if (input < 0)
-            printf("error: %d is not a whole number\n", input);
-        else
-          toBits(input);
+        printf("%s", toBits(input));
+        putchar('\n');
     }
     else
         for (int j = 1; j < argc; j++) {
             input = atoi(argv[j]);
+            printf("%s", toBits(input));
+            putchar('\n');
 
-            if (input < 0)
-                printf("error: %s is not a whole number\n", argv[j]);
-            else
-              toBits(input);
         }
 }
 
-void toBits(int num)
+char* toBits(int num)
 {
-    int highest = 0;
+    int highest, tmp;
+    highest = tmp = 0;
 
-    for (int tmp = num; tmp /= 2; highest++) // find the highest power of 2 that's less than num
+    for (tmp = num; tmp /= 2; highest++) // find the highest power of 2 less than num
         ;
-    char string[highest];
+    char tmpstr[highest];
+    char* bitstr = (char*)malloc(sizeof(tmpstr)+1);
+
+    if (num < 0) // figure out MSB
+      bitstr[0] = '1';
+    else
+      bitstr[0] = '0';
 
     int i = 0;
-    do
-        string[i++] = (num % 2) + '0';
+    num = abs(num);
+    do // figure out rest of the bits
+        tmpstr[i++] = (num % 2) + '0';
     while (num /= 2);
 
+    int j = 1;
     while (i)
-        putchar(string[--i]); // print the char array backwards
+        bitstr[j++] = tmpstr[--i]; // reversing tmpstr into bitstr
 
-    putchar('\n');
+    return(bitstr);
+    free(bitstr);
 }
