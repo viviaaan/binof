@@ -34,9 +34,11 @@ char* toBits(int num) {
     char tmpstr[highest];
     char* bitstr = (char*)malloc(sizeof(tmpstr)+1); // this should be freed after usage by the caller
 
-    if (num < 0) // figure out MSB
-      bitstr[0] = '1';
-    else
+    int j = 0;
+    if (num < 0) { // add negative sign
+      bitstr[0] = '-';
+      j = 1;
+    } else
       bitstr[0] = '0';
 
     int i = 0;
@@ -45,7 +47,6 @@ char* toBits(int num) {
         tmpstr[i++] = (num % 2) + '0';
     while (num /= 2);
 
-    int j = 1;
     while (i)
         bitstr[j++] = tmpstr[--i]; // reversing tmpstr into bitstr
 
