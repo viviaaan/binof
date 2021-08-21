@@ -32,10 +32,9 @@ char* toBits(unsigned long long num) {
         ;
 
     char tmpstr[highest];
-    char* bitstr = (char*)malloc(sizeof(tmpstr)+1); // this should be freed by the caller after usage
+    char* bitstr = (char*)malloc(sizeof(tmpstr)+1); // bitstr should be freed by the caller after usage
 
     int i = 0;
-    num = abs(num);
     do
         tmpstr[i++] = (num % 2) + '0';
     while (num /= 2);
