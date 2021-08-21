@@ -1,16 +1,16 @@
 /* find the two's complement of integers */
 #include <stdio.h>
 #include <stdlib.h>
-char* toBits(int num);
+char* toBits(unsigned long long num);
 
 int main(int argc, char *argv[]) {
-    int input;
+    unsigned long long input;
     char* ans;
 
     if (argc == 1) {
        do {
-        printf("Integer: ");
-        scanf(" %d", &input);
+        printf("Int: ");
+        scanf(" %llu", &input);
         ans = toBits(input);
         printf("%s\n", ans);
         free(ans);
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         }
 }
 
-char* toBits(int num) {
+char* toBits(unsigned long long num) {
     int highest, tmp;
     highest = tmp = 0;
 
